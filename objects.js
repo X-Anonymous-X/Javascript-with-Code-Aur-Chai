@@ -1,5 +1,5 @@
 // there are two type to access object
-// 1) object literals            2) object constructor
+// 1) object using literals            2) object using constructor (singleton)
 
 // 1) object literals
 let sym = Symbol('Hassan')
