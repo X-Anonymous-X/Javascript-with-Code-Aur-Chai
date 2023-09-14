@@ -15,6 +15,8 @@ const myObj = {
 }
 myObj['email'] = 'bawag@chatgpt.com'
 console.log(myObj)
+console.log(myObj.isLoggedin[1]) // we can also access array in objects
+
 // console.log(typeof myObj) //object
 // console.log(myObj.name) // 'Hassan'
 // console.log(typeof myObj.name)
