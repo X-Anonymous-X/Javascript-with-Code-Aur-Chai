@@ -130,7 +130,7 @@ console.log('The index value of this str[5] is :', str[5])
 
 // // *=====================match()=====================*
 
-// const match = new String(`Hassan`);
+// const match = `Hassan`;
 // console.log(match)
 // console.log(match.match('Hassan'));
 
