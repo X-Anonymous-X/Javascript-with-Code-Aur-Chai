@@ -161,3 +161,4 @@ function callingArrays(...getArr){
 }
 
 console.log(callingArrays(array1))
+
