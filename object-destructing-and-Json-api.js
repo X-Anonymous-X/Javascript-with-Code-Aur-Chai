@@ -23,3 +23,13 @@ console.log(one)
 
 var {a: one, b: two} = obj
 console.log(one,two)
+// ==========================================================
+
+const newObj = {
+    name : 'hassan',
+    age: 18,
+    City: 'dhaka'
+}
+let {City} = newObj
+
+console.log(City)
