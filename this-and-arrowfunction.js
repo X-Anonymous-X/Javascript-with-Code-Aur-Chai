@@ -51,3 +51,12 @@ console.log(object1())
 const object2= () => ({name : "hassan"})
 
 console.log(object2())
+
+const newObj = {
+    name: 'hassan',
+    age:18,
+    message: function(){
+        return this.name + ' is ' + this.age + ' years old '
+    }
+}
+console.log(newObj.message())
