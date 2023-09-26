@@ -33,3 +33,7 @@ if (Array.isArray([])) {
 if (Array.isArray({})) {
     console.log('empty object');
 }
+
+if ([]){
+    console.log('empty array is truthy value');
+}
