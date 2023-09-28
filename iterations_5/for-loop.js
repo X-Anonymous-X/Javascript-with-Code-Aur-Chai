@@ -54,3 +54,8 @@ for (let i = 1; i < 10; i++) {
     }  
     console.log(i)
 }
+// getting array with for loop
+const array = ['player1','player2','player3','player4']
+for(let i = 0; i < array.length; i++){
+    console.log(array[i])
+}
