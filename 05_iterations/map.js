@@ -11,3 +11,14 @@ console.log(`This is the output of two map method ${[newArray1]}`)
 
 const newArray2 = array.map((value) => (value * 10)).map((value) => (value + 2)).filter((key) => (key % 2 == 0))
 console.log(`This is the output of two map and one filter method ${[newArray2]}`)
+
+/*
+map() transforms elements and returns a new array.
+filter() selects elements based on a condition and returns a new array.
+forEach() iterates/loop over elements and performs actions on them without creating a new array.
+*/
+const numbers = [1, 2, 3, 4, 5];
+const result = numbers
+  .filter(number => number % 2 === 0)
+  .map(number => number * 2); //map transform the element and return new array
+// result is [4, 8] 
