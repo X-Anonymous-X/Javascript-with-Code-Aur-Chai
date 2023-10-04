@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | creating Element</title>
+</head>
+
+<body style="background-color: #212121; color: #fff;">
+
+
+
+</body>
+<script>
+    {
+        const div1 = document.createElement('div')
+        console.log(div1)
+        // creating classes or id
+        div1.className = 'another class' // mostly won't use bcz it overrides the existing class 
+        div1.setAttribute('class', 'f-class l-class') // first type attributeName , value
+
+        // adding childElement in div1
+        const heading = document.createElement('h1')
+        div1.appendChild(heading) // append mean adopt or add inside it
+        // adding text in child element
+
+        // both are right and had np , but we use second-one for better optimizing
+        heading.innerText = 'Bawag '
+        const txt = document.createTextNode('Learning DOM in Js')
+        heading.appendChild(txt)
+
+        // adding style on element
+        div1.style.backgroundColor = 'green'
+        div1.style.color = 'whites'
+
+        // all this code is working in memory so for displaying it on screen we do this
+        document.body.appendChild(div1) // for displaying on screen
+    }
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Relation b/w child and parent</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+     <div class="parent"><!-- text-node -->
+        <div class="day">Monday</div><!-- text-node -->
+        <div class="day">Tuesday</div><!-- text-node -->
+        <div class="day">Wednesday</div><!-- text-node -->
+        <div class="day">Thursday</div><!-- text-node -->
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent)
+    // console.log(parent.children)
+    // console.log(parent.children[0])
+    // console.log(parent.children[1].innerHTML)
+
+
+    for (let i = 0; i < parent.children.length; i++) {
+        // console.log(parent.children[i].innerHTML)
+    }
+    // can also style
+    parent.children[0].style.color = 'red'
+    // we can also access first child by this syntax
+
+    // console.log(parent.firstElementChild)
+    // console.log(parent.firstElementChild.innerHTML)
+    // console.log(parent.lastElementChild.innerHTML)
+
+
+    const mon = document.querySelector('.day')
+    // console.log(mon.parentElement)
+    // console.log(mon.nextElementSibling)
+
+    console.log('Nodes :', parent.childNodes);
+</script>
+</html>

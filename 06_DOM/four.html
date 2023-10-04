@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Removing Element</title>
+</head>
+
+<body style="background-color: #212121; color: #fff;">
+
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+
+</body>
+<script>
+    function addingLang(lang) {
+        const langName = document.querySelector(".language")
+        const li = langName.appendChild(document.createElement('li'))
+        // li.innerHTML = `${lang}` // instead of doing this we do else for optimizing
+        li.appendChild(document.createTextNode(`${lang}`))
+    }
+    addingLang('Python')
+
+
+    // edit/modify 
+    const second = document.querySelector('li:nth-child(2)')
+    second.innerHTML = 'Java' // to overide existing value
+    // second.appendChild(document.createTextNode('Java')) // for better optimization
+
+    //replace
+    const rplc = document.querySelector('li:nth-child(2)')
+    const new1 = document.createElement('li')
+    new1.innerHTML = 'Django'
+    rplc.replaceWith(new1) 
+
+    //remove 
+    const first = document.querySelector('li:first-child') // selected by pseudo selectors
+    // first.remove();
+</script>
+
+</html>
