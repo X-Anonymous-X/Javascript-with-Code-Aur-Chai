@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background-Color Changer with Javascript</title>
+</head>
+<style>
+    h1{
+        font-size: 25px;
+        text-align: center;
+        font-weight: 900;
+        text-decoration: underline;
+    }
+    .parent{
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    .box{
+        height: 200px;
+        width: 200px;
+        border: 2px solid white;
+        margin: 12px;
+        border-radius: 5px;
+    }
+    #grey{
+        background-color: grey;
+    }
+    #yellow{
+        background-color: yellow;
+    }
+    #blue{
+        background-color: blue;
+    }
+    #red{
+        background-color: red;
+    }
+</style>
+<body style="background-color: #212121; color: #fff;">
+    <h1>Project 1: Color Changing with Javascript</h1>
+    <h3>Color-Scheme Changer</h3>
+    <div class="parent">
+        <div class="box" id="grey"></div>
+        <div class="box" id="yellow"></div>
+        <div class="box" id="blue"></div>
+        <div class="box" id="red"></div>
+    </div>
+
+    <p>Try Clicking on one of the colors above to change the Background-Color of this page!</p>
+    
+</body>
+<script src="Project1.js"></script>
+</html>
