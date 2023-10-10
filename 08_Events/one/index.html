@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+    <style>
+        body {
+            background-color: #414141;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Events in Javascript</h1>
+    <ul id="images">
+        <li><img height="233" id="bird" src="/img/bird.jpg" alt="bird"></li>
+        <li><img height="233" id="lion" src="/img/lion.png" alt="lion"></li>
+        <li><img height="233" id="cockatoo" src="/img/cockatoo.png" alt="cockatoo"></li>
+        <li><img height="233" id="eagle" src="/img/eagle.jpg" alt="eagle"></li>
+        <!-- this is not a good way to use js inline -->
+        <!-- <li><img height="233" id="eagle" src="/img/eagle.jpg" alt="eagle" onclick="alert('owl')"></li>  -->
+        <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+    </ul>
+</body>
+<script>
+    // document.getElementById('bird').onclick = function(){
+    //     alert('bird')
+    // } 
+    // this is also not a good way to add events , the main drawback of this is it gives u less feature than the "addEventListener"
+
+    //by default its false also known as bubbling , and true is known as capturing
+
+    // ========================== false ================================
+    /* in false it select firstly the child then parent bcz the bubble goes from bottom to top in air so that's why child to parent
+    
+    document.getElementById('images').addEventListener('click', function(){
+        console.log('clicked on id =images')
+    },false)
+    
+    // see differenece in console
+    
+    document.getElementById('bird').addEventListener('click', function(){
+        console.log('clicked on id =bird')
+    },false) 
+    */
+    /*
+    sometimes we don't want bubbling so we use method like stopPropogation() same for capturing method /true
+ 
+     // e.stopPropagation() without this method
+     document.getElementById('images').addEventListener('click', function () {
+         console.log('clicked on id =images')
+     }, false)
+     document.getElementById('bird').addEventListener('click', function (e) {
+         console.log('bird clicked')
+     }, false)
+     */
+
+    /*
+    // e.stopPropagation() with this
+    document.getElementById('images').addEventListener('click', function () {
+        console.log('clicked on id =images')
+    }, false)
+    document.getElementById('bird').addEventListener('click', function (e) {
+        e.stopPropagation()
+        console.log('bird clicked')
+    }, false)
+    */
+    // ========================== true ================================
+    /* in true it select firstly the parent then child
+    document.getElementById('images').addEventListener('click', function(){
+        console.log('clicked on id =images')
+    },true)
+    // see differenece in console
+    document.getElementById('lion').addEventListener('click', function(){
+        console.log('clicked on id =lion')
+    },true)
+    */
+
+    /*
+    Learn more about these events topics online
+ 1   type ,timeStamp ,defaultPrevented()
+ 2   target ,toElement ,srcElement , currentTarget,
+ 3   clientX , clientY ,screenX , screenY
+ 4   altkey ,ctrlkey ,shiftkey , keyCode
+    */
+
+    // ========================== defaultPrevented ================================
+    /* used to avoid default action
+    document.getElementById('google').addEventListener('click', function (e) {
+        console.log('clicked on id =google')
+        e.preventDefault() // prevent default function of 'a'tag which is link or go to link
+    }, true)
+    */
+
+   // ================writing code where we click on img and remove it with two methods==========
+/*
+   document.querySelector('#images').addEventListener('click',function (e){
+       
+       let removeIt = e.target.parentNode
+       console.log(e.target.id)
+       console.log(removeIt)
+    //    removeIt.remove()
+    //    removeIt.parentNode.removeChild(removeIt)
+    })
+
+*/ 
+/* this code defines to remove img with li without having any effect after clicking on li to ul
+    document.getElementById('images').addEventListener('click', function (e){
+        console.log(e.target.tagName)
+        if (e.target.tagName === 'IMG'){
+            let removeIt = e.target.parentNode
+            console.log(e.target.id)
+            removeIt.parentNode.removeChild(removeIt)
+        }
+    })
+*/
+</script>
+
+</html>
