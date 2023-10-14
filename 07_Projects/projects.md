@@ -1,4 +1,4 @@
-## Project 1 - Js Code
+## Project 1 - Js Code (ColorPicker)
 
 ```Javascript
 const body = document.querySelector('body');
@@ -30,7 +30,7 @@ box.forEach((color) => {
 
 ```
 
-## Project 2 - Js Code
+## Project 2 - Js Code (BMI Calculator)
 
 ```Javascript
 
@@ -63,7 +63,7 @@ form.addEventListener('submit', function (s){
 
 ```
 
-## Project 3 - Js Code
+## Project 3 - Js Code (Digital Clock)
 
 ```Javascript
 
@@ -74,4 +74,131 @@ setInterval(function () {
     clock.innerHTML = date.toLocaleTimeString();
 },1000)
 
+```
+## Project 4 - Js Code (Guessing The Correct Number)
+
+```Javascript
+
+let randomNumber = parseInt(Math.random() * 100 + 1);
+
+const submit = document.querySelector('#subt');
+const userInput = document.querySelector('#guessField');
+const guessSlot = document.querySelector('.guesses');
+const remaining = document.querySelector('.lastResult');
+const lowOrHi = document.querySelector('.lowOrHi');
+const startOver = document.querySelector('.resultParas');
+
+const p = document.createElement('p');
+
+let prevGuess = [];
+let numGuess = 1;
+
+let playGame = true;
+
+if (playGame) {
+  submit.addEventListener('click', function (e) {
+    e.preventDefault();
+    const guess = parseInt(userInput.value);
+    console.log(guess);
+    validateGuess(guess);
+  });
+}
+
+function validateGuess(guess) {
+  if (isNaN(guess)) {
+    alert('PLease enter a valid number');
+  } else if (guess < 1) {
+    alert('PLease enter a number more than 1');
+  } else if (guess > 100) {
+    alert('PLease enter a  number less than 100');
+  } else {
+    prevGuess.push(guess);
+    if (numGuess === 11) {
+      displayGuess(guess);
+      displayMessage(`Game Over. Random number was ${randomNumber}`);
+      endGame();
+    } else {
+      displayGuess(guess);
+      checkGuess(guess);
+    }
+  }
+}
+
+function checkGuess(guess) {
+  if (guess === randomNumber) {
+    displayMessage(`You guessed it right`);
+    endGame();
+  } else if (guess < randomNumber) {
+    displayMessage(`Number is TOOO low`);
+  } else if (guess > randomNumber) {
+    displayMessage(`Number is TOOO High`);
+  }
+}
+
+function displayGuess(guess) {
+  userInput.value = '';
+  guessSlot.innerHTML += `${guess}, `;
+  numGuess++;
+  remaining.innerHTML = `${11 - numGuess} `;
+}
+
+function displayMessage(message) {
+  lowOrHi.innerHTML = `<h2>${message}</h2>`;
+}
+
+function endGame() {
+  userInput.value = '';
+  userInput.setAttribute('disabled', '');
+  p.classList.add('button');
+  p.innerHTML = `<h2 id="newGame">Start new Game</h2>`;
+  p.style.cursor = 'pointer'
+  startOver.appendChild(p);
+  playGame = false;
+  newGame();
+}
+
+function newGame() {
+  const newGameButton = document.querySelector('#newGame');
+  newGameButton.addEventListener('click', () => {
+          randomNumber = parseInt(Math.random() * 100 + 1);
+          prevGuess = [];
+          numGuess = 1;
+          guessSlot.innerHTML = '';
+          remaining.innerHTML = `${11 - numGuess} `;
+          userInput.removeAttribute('disabled');
+          startOver.removeChild(p);
+          playGame = true;
+      });
+}
+```
+
+## Project 5 - Js Code (Random_colorChanger)
+
+```Javascript
+
+let random_clr = function () {
+    const hex = '0123456789ABCDEF'
+    let color = '#'
+    for (i = 0; i < 6; i++) {
+        color += hex[Math.floor(Math.random() * 16)]
+    }
+    return color
+}
+
+document.querySelector('#start').addEventListener('click', newColor)
+let intervalId;
+
+function newColor() {
+    intervalId = setInterval(function () {
+        document.body.style.backgroundColor = random_clr()
+        document.body.style.color = random_clr()
+        console.log(random_clr())
+    }, 1500)
+}
+
+document.querySelector('#stop').addEventListener('click', stop)
+function stop() {
+    clearInterval(intervalId)
+    console.log('Stopped')
+}
 ```
