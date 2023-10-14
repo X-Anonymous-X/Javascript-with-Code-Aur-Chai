@@ -189,16 +189,19 @@ document.querySelector('#start').addEventListener('click', newColor)
 let intervalId;
 
 function newColor() {
-    intervalId = setInterval(function () {
-        document.body.style.backgroundColor = random_clr()
-        document.body.style.color = random_clr()
-        console.log(random_clr())
-    }, 1500)
+    if (intervalId == null) { // added
+        intervalId = setInterval(function () {
+            document.body.style.backgroundColor = random_clr()
+            document.body.style.color = random_clr()
+            console.log(random_clr())
+        }, 1500)
+    }
 }
 
 document.querySelector('#stop').addEventListener('click', stop)
 function stop() {
     clearInterval(intervalId)
+    intervalId = null // added
     console.log('Stopped')
 }
 ```
