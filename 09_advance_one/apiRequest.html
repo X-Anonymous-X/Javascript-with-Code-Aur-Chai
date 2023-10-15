@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Request</title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    <h1>Api Request in Javascript</h1>
+    <button id="btn">Hidden info</button>
+    <div class="card">
+        <img src="" alt="">
+        <h3>Username: <span id="fans"></span> </h3>
+        <p></p>
+    </div>
+
+</body>
+<script>
+
+    const requestUrl = 'https://api.github.com/users/X-Anonymous-X' // where to request
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', requestUrl)
+    // console.log('Here')
+    // xhr.onload = () => {
+    //     console.log(xhr.readyState);
+    //     console.log(xhr.status);
+    //     console.log(xhr.responseText);
+    // }
+    // console.log(xhr.readyState);
+    
+    xhr.onreadystatechange = function () { // indicates at everyChange in state run this function
+        console.log(xhr.readyState); //,readyState means which state it is currently in
+
+        if(xhr.readyState === 4){ // 4 means done/complete
+            console.log(xhr.status);
+            // let response = this.responseText 
+            let response = JSON.parse(this.responseText) 
+            console.log(response.login) // this will show undefined bcz bydefauly response is return as string ,to convert string into json we do this as shown above
+
+            // this part is for assignment of adding image and name after clicking on button
+            let pic = response.avatar_url
+            console.log(pic)
+            const btn = document.querySelector('#btn')
+            btn.addEventListener('click', () => {
+                let image = document.querySelector('img')
+                image.setAttribute('src', pic)
+                image.style.width = "122px"
+                let fans = document.querySelector('#fans')
+                fans.innerHTML = response.login
+            })
+        }
+        // else if (xhr.readyState !== 4){
+        //     document.querySelector('#fans').innerHTML = 'Network Error 404'
+        // }
+    }
+    xhr.send()
+</script>
+
+</html>
+<!-- Note: 
+xhr.status logs the HTTP status code of the response. A status of 200 indicates a successful request, while other status codes indicate various types of responses (e.g., 404 for "Not Found," 500 for "Internal Server Error"). -->
+
+<!-- The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client exists in one of the following states:
+
+Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
