@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+#container {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+img {
+    margin: 30px;
+}
+
+#btn {
+    padding: 8px 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    background-color: aliceblue;
+}
+
+.m {
+    margin: 3px;
+}
