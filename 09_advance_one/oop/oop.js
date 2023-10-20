@@ -11,11 +11,9 @@ const user = {
 
 }
 
-
-
-//console.log(user.username)
-//console.log(user.getUserDetails());
-// console.log(this);
+console.log(user.username)
+console.log(user.getUserDetails());
+console.log(this);
 
 
 function User(username, loginCount, isLoggedIn){
