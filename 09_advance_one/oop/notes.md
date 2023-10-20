@@ -15,7 +15,7 @@ Object literal
 - Prototypes
 - Classes
 - Instances (new, this)
-
+- Call,Bind,Apply
 
 ## 4 pillars
 Abstraction
