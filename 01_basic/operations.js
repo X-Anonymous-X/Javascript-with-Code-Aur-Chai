@@ -13,7 +13,8 @@ console.log(12 % 12); //modulas
 // increment operation
 let number1 = 10;
 let newNumber1 = number1++ // this is an increment
-console.log('The value of Increment of number1 is :',newNumber1)
+let new1 = newNumber1++;
+console.log('The value of secIncrement of number1 is :',new1)
 // decrement operation
 let number2 = 10;
 let newNumber2 = number2-- // this is an decrement

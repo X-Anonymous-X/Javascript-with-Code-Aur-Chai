@@ -84,3 +84,5 @@ String.prototype.trueLength = function(){
 }
 myName.trueLength()
 mychannel.trueLength()
+
+
