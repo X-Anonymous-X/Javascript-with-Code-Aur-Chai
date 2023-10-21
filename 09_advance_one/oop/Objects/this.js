@@ -9,6 +9,10 @@ const method = {
     username: 'hassan',
     hassan() { // this is method
         console.log(this)
+        function my(){ // this is function
+            console.log(this)
+        }
+        my()
     }
 }
 method.hassan()
